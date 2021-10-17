@@ -22,7 +22,7 @@ body {
     transform: translateX(-100%);
     opacity: 0;
     position: absolute;
-    transition: transform 1s, -webkit-transform 1s;
+    transition: transform 2s, -webkit-transform 2s;
     border-radius: 5%;
     order: 1;
 }
