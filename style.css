@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    height: 100vw;
+    background: #222226;
+}
+
+.slider {
+    margin: auto;
+    display: flex;
+    max-width: 700px;
+    flex-wrap: wrap;
+    background-color: #333336;
+    padding: 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.slide__img {
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    transform: translateX(-100%);
+    opacity: 0;
+    position: absolute;
+    transition: transform 2s, -webkit-transform 2s;
+    border-radius: 5%;
+    order: 1;
+}
+
+.slide__desc {
+    margin-right: auto;
+    margin-bottom: 2em;
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+    order: 2;
+    color: white;
+    transition: opacity 1s;
+}
+
+.slide__bullet-label {
+    margin: 0.5em 0;
+    cursor: pointer;
+    padding: 0.5em;
+    order: 3;
+}
+
+.slide__bullet-label:after {
+    box-sizing: border-box;
+    content: '';
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: 0.1em solid plum;
+    background-color: plum;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+}
+
+.slide__bullet-label:hover:after {
+    background-color: white;
+}
+
+.slider>input {
+    display: none;
+}
+
+.slider>input[type="radio"]:checked+label:after {
+    border: 0.2em solid plum;
+    background-color: black;
+}
+.slider>input[type="radio"]:checked+label:hover:after {
+    border-color:  white;
+}
+
+#slide__bullet--1:checked~#slide__img--1,
+#slide__bullet--2:checked~#slide__img--2,
+#slide__bullet--3:checked~#slide__img--3,
+#slide__bullet--4:checked~#slide__img--4, 
+#slide__bullet--5:checked~#slide__img--5,
+#slide__bullet--1:checked~#slide__desc--1,
+#slide__bullet--2:checked~#slide__desc--2,
+#slide__bullet--3:checked~#slide__desc--3,
+#slide__bullet--4:checked~#slide__desc--4, 
+#slide__bullet--5:checked~#slide__desc--5 {
+    position: static;
+    opacity: 1;
+    z-index: 0;
+    transform: none;
+}
+
+@media screen and (max-width: 420px) {
+    .slider {
+        justify-content: center;
+    }
+
+    .slide__desc {
+        width: 100%;
+        order: 3;
+    }
+
+    .slide__bullet-label {
+        order: 2;
+    }
+}
